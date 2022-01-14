@@ -1,0 +1,25 @@
+@import '../../abstracts/mixins';
+@import '../../abstracts/breakpoints';
+
+.product-selected {
+    @include centeredFlexColumn;
+    width: 100vw;
+    height: 80vh;
+    padding: 5vh 0;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    @media (min-width: $tablet) {
+        flex-direction: row;
+        width: 100vw;
+        height: 80vh;
+        padding: 5vh 0;
+    }
+
+    img {
+        max-width: 60vw;
+        max-height: 50vh;
+        @media (min-width: $tablet) {
+            max-width: 50vw;
+            max-height: 50vh;
+        }    
+    }
+}

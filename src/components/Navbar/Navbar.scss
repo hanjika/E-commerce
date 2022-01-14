@@ -1,0 +1,41 @@
+@import '../../abstracts/breakpoints';
+
+// .navigation ul {
+//     position: fixed; /* Stay in place */
+//     z-index: 1; /* Sit on top */
+//     left: 0;
+//     top: 10%;
+//     width: 100%; /* Full width */
+//     height: 90%; /* Full height */
+//     overflow: auto; /* Enable scroll if needed */
+//     background-color: black;
+//     color: white;
+//     text-align: left;
+//     @media (min-width: $tablet) {
+//         display: flex;
+//         flex-direction: row;
+//         height: 20%;
+//     }
+
+//     li {
+//         margin: 2vh 0 2vh 25vw;
+//         transition: 0.4s;
+//         @media (min-width: $tablet) {
+//             display: flex;
+//             flex-direction: row;
+//             margin: 20;
+//         }
+
+//         &:hover{
+//             color: red;
+//         }
+//     }
+
+//     hr {
+//         margin: 5vh 0 5vh 25vw;
+//         width: 40vw;
+//         @media (min-width: $tablet) {
+//             display: none;
+//         }
+//     }
+// }

@@ -1,0 +1,82 @@
+@import './abstracts/mixins';
+@import './abstracts/breakpoints';
+@import './abstracts/colours';
+
+.App {
+  margin: 0
+}
+
+.filter-search {
+  @include centeredFlexColumn;
+  background-color: $primary;
+  width: 100%;
+  height: 5%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 10%;
+  overflow: auto;
+  color: white;
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5vh;
+  }
+  .navigation ul {
+    width: 100vh;
+    height: 90vh;
+    z-index: 2;
+    text-align: left;
+    @media (min-width: $tablet) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 5vh;
+
+      li {
+          color: white;
+          margin: 2vh 0 2vh 25vw;
+          transition: 0.4s;
+          @media (min-width: $tablet) {
+              margin: 0;
+              cursor: pointer;
+          }
+  
+          &:hover{
+              color: $subtleWarm;
+          }
+      }
+  
+      hr {
+          margin: 5vh 0 5vh 25vw;
+          width: 40vw;
+          @media (min-width: $tablet) {
+              display: none;
+          }
+      }
+    }
+  }
+
+  #search {
+    background-color: white;
+  }
+}
+
+main {
+  margin-top: 10vh;
+}
+
+button {
+  background-color: rgb(16, 16, 71);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  .add {
+      background-color: green;
+  }
+  .remove {
+      background-color: red;
+  }
+}
