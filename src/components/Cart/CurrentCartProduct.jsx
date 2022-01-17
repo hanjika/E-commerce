@@ -34,11 +34,13 @@ const CurrentCartProduct = ({ product, currentCart, setCurrentCart }) => {
         return <p>Loading...</p>;
     } else {
         return (
-            <li key={product.productId} className='row'>
+            <li key={product.productId} className='single-cart-product'>
                 <img src={cartProduct.image} alt={cartProduct.title}></img>
-                <div className='column'>
-                    <p>{cartProduct.title}</p>
-                    <p>Qty: {product.quantity}</p>
+                <div className='direction-responsive'>
+                    <div className='column-desktop'>
+                        <p>{cartProduct.title}</p>
+                        <p>Price: €{cartProduct.price}</p>
+                    </div>
                     <div className='amount-to-cart'>
                         <button disabled={quantity === 1 ? true : false} onClick={() => updateQuantity(-1)}><FontAwesomeIcon icon={faMinus} /></button>
                         <p className='amount'>{quantity}</p>

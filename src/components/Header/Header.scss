@@ -5,27 +5,30 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-content: center;
-    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: $colour-header;
     color: $colour-header-elements;
     position: fixed;
     top: 0;
-    // left: 0;
     width: 100vw;
     height: 10vh;
-    margin: 0;
     z-index: 1;
+
+    @media (min-width: $tablet) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw;
+        padding: 0 5vw;
+    }
+
     .header-link {
         text-decoration: none;
         color: $colour-header-elements;
         h1 {
             font-family: 'Lobster', cursive;
         }
-    }
-   
-    @media (min-width: $tablet) {
-        grid-template-columns: 2fr 1fr;
-        padding-right: 0;
     }
 
     .hamburger {
@@ -38,10 +41,10 @@
         display: none;
         @media (min-width: $tablet) {
             display: flex;
-            flex-direction: row;
         }
 
         .direct-to-cart, .direct-to-profile {
+            margin: 1vw;
             cursor: pointer;
         }
     }

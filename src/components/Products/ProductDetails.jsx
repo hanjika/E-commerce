@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import AddToCartContainer from './AddToCartContainer';
 
-const ProductDetails = ({ userId, addToCart, currentCart, setCurrentCart }) => {
+const ProductDetails = ({ userId, currentCart, setCurrentCart }) => {
     const location = useLocation();
     const id = location.pathname.split('/')[2];
 

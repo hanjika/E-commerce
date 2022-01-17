@@ -5,7 +5,7 @@ import './SingleProduct.scss';
 import AddToCartButton from './AddToCartButton';
 import { Link } from 'react-router-dom';
 
-const SingleProduct = ({ product, addToCart }) => {
+const SingleProduct = ({ product }) => {
     return (
         <li>
             <Link to={`/product/${product.id}`} className='product-link'>

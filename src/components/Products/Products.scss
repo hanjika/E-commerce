@@ -1,7 +1,12 @@
 @import '../../abstracts/breakpoints';
 
-section {
-    margin-top: 15vh;
+.category {
+    text-transform: capitalize;
+    margin-left: 6vw;
+}
+
+.number-of-products {
+    margin: 2vh 0 2vh 6vw;
 }
 
 ul {

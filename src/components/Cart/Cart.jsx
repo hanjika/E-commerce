@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import CurrentCart from './CurrentCart';
 import CheckoutCart from './CheckoutCart';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ userId, currentCart, setCurrentCart }) => {
     return (
@@ -18,8 +19,14 @@ const Cart = ({ userId, currentCart, setCurrentCart }) => {
                     ) : (
                     <CurrentCart currentCart={currentCart} setCurrentCart={setCurrentCart} />
                 )}
-                <button>Continue Shopping</button>
-                <CheckoutCart userId={userId} currentCart={currentCart} />
+                <div className='final-option-buttons'>
+                    <Link to='/'>
+                        <button>Continue Shopping</button>  
+                    </Link>
+                    {currentCart.length === 0 ? null : (
+                        <CheckoutCart userId={userId} currentCart={currentCart} />
+                    )}
+                </div>
             </div>
             <style jsx>{`
             .filter-search > * {

@@ -2,7 +2,7 @@
 
 .profile {
     @include centeredFlexColumn;
-    margin-top: 15%;
+    margin-top: 10vh;
 
     .capitalize {
         text-transform: capitalize;

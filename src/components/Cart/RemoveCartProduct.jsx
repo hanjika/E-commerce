@@ -4,8 +4,8 @@ import { faTrash} from '@fortawesome/free-solid-svg-icons';
 
 const RemoveCartProduct = ({ product, currentCart, setCurrentCart }) => {
     return (
-        <div className='remove-edit-cart-product'>
-            <FontAwesomeIcon onClick={() => console.log('remove')} icon={faTrash} size='2x' color='red' cursor='pointer' />
+        <div className='remove-cart-product'>
+            <FontAwesomeIcon onClick={() => console.log('remove')} icon={faTrash} size='2x' cursor='pointer' />
         </div>
     )
 }

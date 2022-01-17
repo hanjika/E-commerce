@@ -9,7 +9,6 @@ import Products from './components/Products/Products';
 import ProductDetails from './components/Products/ProductDetails';
 import AlertAddedToCart from './components/Cart/AlertAddedToCart';
 import Cart from './components/Cart/Cart';
-import CartHistory from './components/Cart/CartHistory';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 
@@ -24,6 +23,7 @@ const App = () => {
   const [currentCart, setCurrentCart] = useState([]);
 
   const toggleHamburger = () => {
+    console.log('clicked');
     setHamburgerOpen(!hamburgerOpen);
   }
 
@@ -60,6 +60,7 @@ const App = () => {
       return <p>Loading...</p>;
   } else {
     return (
+      <>
       <div className="App">
         <Router>
           <Header toggleHamburger={toggleHamburger} />
@@ -69,7 +70,7 @@ const App = () => {
           </div>
           <main>
             <Routes>
-              <Route path='/' element={<Products searchedProducts={searchedProducts} />} />
+              <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
               <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
               <Route path='/profile' element={<Profile userId={userId} />} />
               <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
@@ -78,6 +79,12 @@ const App = () => {
         </Router>
         <Footer />
       </div>
+      <style jsx>{`
+      .navigation ul {
+          display: ${hamburgerOpen ? 'inline' : 'none'};
+      }
+  `}</style>
+  </>
     );
   }
 }

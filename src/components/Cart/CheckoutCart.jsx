@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Moment from 'moment';
 
 const CheckoutCart = ({ userId, currentCart}) => {
     const [error, setError] = useState(null);
-    console.log(currentCart);
 
     const input = JSON.stringify(
         {
@@ -25,9 +24,13 @@ const CheckoutCart = ({ userId, currentCart}) => {
         )
     };
 
-    return (
-        <button onClick={checkingOut}>Checkout</button>
-    )
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    } else {
+        return (
+            <button onClick={checkingOut}>Checkout</button>
+        )
+    }
 }
 
 export default CheckoutCart;
