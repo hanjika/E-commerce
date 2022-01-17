@@ -34,7 +34,7 @@ const Profile = ({ userId }) => {
                 <div className='profile'>
                     <h2>My Profile</h2>
                     <FontAwesomeIcon icon={faUser} className='user-img' size='10x' />
-                    <p className='capitalize'>{user.name.firstname} {user.name.lastname}</p>
+                    {/* <p className='capitalize'>{user.name.firstname} {user.name.lastname}</p> */}
                     <div>
                         <h3>My Details</h3>
                         <p><b>Username:</b> {user.username}</p>
@@ -42,9 +42,9 @@ const Profile = ({ userId }) => {
                         <p><b>Telephone:</b> {user.phone}</p>
                         <details>
                             <summary >Address</summary>
-                            <p className='capitalize'>{user.address.number} {user.address.street}</p>
+                            {/* <p className='capitalize'>{user.address.number} {user.address.street}</p>
                             <p className='capitalize'>{user.address.city}</p>
-                            <p>{user.address.zipcode}</p>
+                            <p>{user.address.zipcode}</p> */}
                         </details>   
                     </div>
                     <details>

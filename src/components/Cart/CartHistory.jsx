@@ -33,10 +33,7 @@ const CartHistory = ({ userId }) => {
             <>
                 <div className='cart'>
                     {carts.length === 0 ? (
-                        <>
-                            <FontAwesomeIcon icon={faShoppingCart} className='empty-cart' size='10x' />
-                            <p>Cart is empty</p>
-                        </> 
+                        <p>No previous orders</p>
                         ) : (
                         <AllCarts carts={carts} />
                     )}

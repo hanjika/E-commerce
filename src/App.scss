@@ -2,8 +2,9 @@
 @import './abstracts/breakpoints';
 @import './abstracts/colours';
 
-.App {
+body {
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -62,8 +63,12 @@
 }
 
 main {
-  margin-top: 15vh;
+  // margin-top: 5vh;
+  width: 100vw;
   height: 85vh;
+  @media (min-width: $tablet) {
+    margin-top: 20vh;
+  }
 }
 
 button {
