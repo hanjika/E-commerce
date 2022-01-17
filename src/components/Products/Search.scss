@@ -15,17 +15,24 @@
 
     .search-icon {
         position: absolute;
-        left: 8px;
+        left: 10vw;
         height: 5vh;
         color: black;
+        @media (min-width: $tablet) {
+            left: 1vw;
+        }
     }
 
     input {
-        width: 100%;
-        padding: 0 23px 0 30px;
+        width: 80vw;
+        padding: 0 20vw;
         background-color: $colour-search;
         border: none;
         outline: 0;
         font-family: 'Poppins', sans-serif;
+        @media (min-width: $tablet) {
+            width: 100vw;
+            padding: 0 3vw;
+        }
     }
 }

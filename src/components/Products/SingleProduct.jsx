@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const SingleProduct = ({ product }) => {
     return (
-        <li>
+        <li className='product-list-item'>
             <Link to={`/product/${product.id}`} className='product-link'>
                 <div className='product'>
                     <div>

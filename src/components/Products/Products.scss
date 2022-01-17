@@ -2,11 +2,17 @@
 
 .category {
     text-transform: capitalize;
-    margin-left: 6vw;
+    margin-left: 10vw;
+    @media (min-width: $tablet) {
+        margin-left: 5vw;
+    }
 }
 
 .number-of-products {
-    margin: 2vh 0 2vh 6vw;
+    margin: 2vh 0 2vh 10vw;
+    @media (min-width: $tablet) {
+        margin-left: 5vw;
+    }
 }
 
 ul {
