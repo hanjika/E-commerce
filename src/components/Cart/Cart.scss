@@ -1,0 +1,54 @@
+@import '../../abstracts/breakpoints';
+@import '../../abstracts/colours';
+@import '../../abstracts/mixins';
+
+.cart {
+    @include centeredFlexColumn;
+    margin-top: 15%;
+    
+    .current-cart {
+        box-shadow: $box-shadow-style;
+        margin: 2vh 0;
+        img {
+            max-width: 20vw;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .all-carts {
+        display: flex;
+        flex-direction: column;
+
+        .single-cart {
+            box-shadow: $box-shadow-style;
+            margin: 2vh 0;
+            img {
+                max-width: 20vw;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+            }
+    
+            .column {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        // @media (min-width: $tablet) {
+        //     display: flex;
+        //     flex-direction: column;
+        // }
+    }
+}

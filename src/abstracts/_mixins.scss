@@ -1,12 +1,15 @@
-@mixin atLarge(){
-    @media screen and (min-width: $MEDIUM){
-        @content;
-    }
-}
+@import './colours';
 
 @mixin centeredFlexColumn {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+@mixin linkStyle {
+    transition: 0.4s;
+    &:hover {
+        color: $colour-hover;
+    }
 }

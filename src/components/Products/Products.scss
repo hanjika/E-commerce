@@ -1,15 +1,21 @@
 @import '../../abstracts/breakpoints';
 
+section {
+    margin-top: 15vh;
+}
+
 ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     list-style-type: none;
     text-align: center;
-    margin: 0;
+    margin: 2vw;
     padding: 0;
+
     @media (min-width: $tablet) {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2vw;
     }
 }

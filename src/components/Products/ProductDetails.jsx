@@ -2,9 +2,9 @@ import './ProductDetails.scss';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import AddToCartButton from '../Cart/AddToCartButton';
+import AddToCartContainer from './AddToCartContainer';
 
-const ProductDetails = ({ addToCart }) => {
+const ProductDetails = ({ userId, addToCart, currentCart, setCurrentCart }) => {
     const location = useLocation();
     const id = location.pathname.split('/')[2];
 
@@ -15,7 +15,6 @@ const ProductDetails = ({ addToCart }) => {
     useEffect(() => {
     axios.get('https://fakestoreapi.com/products/' + id).then(
         (result) => {
-            console.log(result.data)
             setIsLoaded(true);
             setProduct(result.data);
         },
@@ -38,7 +37,7 @@ const ProductDetails = ({ addToCart }) => {
                     <p>{product.title}</p>
                     <p>€{product.price?.toFixed(2)}</p>
                     {/* <p>€{product.price.toFixed(2)}</p> */}
-                    <AddToCartButton product={product} addToCart={addToCart} />
+                    <AddToCartContainer userId={userId} product={product} currentCart={currentCart} setCurrentCart={setCurrentCart} />
                 </div> 
             </div>
         )

@@ -2,19 +2,21 @@ import React from 'react';
 import './SingleProduct.scss';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import AddToCartButton from '../Cart/AddToCartButton';
+import AddToCartButton from './AddToCartButton';
 import { Link } from 'react-router-dom';
 
 const SingleProduct = ({ product, addToCart }) => {
     return (
-        <li key={product.id}>
-            <Link to={`/product/${product.id}`}>
+        <li>
+            <Link to={`/product/${product.id}`} className='product-link'>
                 <div className='product'>
-                    <img src={product.image} alt={product.title}></img>
-                    <p>{product.title}</p>
-                    <p>€{product.price.toFixed(2)}</p>
-                    <AddToCartButton product={product} addToCart={addToCart} />
-                    {/* <button>Add To Cart <FontAwesomeIcon icon={faShoppingCart} /></button> */}
+                    <div>
+                       <img src={product.image} alt={product.title}></img> 
+                    </div>
+                    <div className='product-info'>
+                       <p>{product.title}</p>
+                        <p>€{product.price.toFixed(2)}</p> 
+                    </div>
                 </div>
             </Link>
         </li>

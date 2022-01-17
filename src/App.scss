@@ -3,80 +3,101 @@
 @import './abstracts/colours';
 
 .App {
-  margin: 0
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .filter-search {
-  @include centeredFlexColumn;
-  background-color: $primary;
-  width: 100%;
-  height: 5%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 10%;
-  overflow: auto;
-  color: white;
   @media (min-width: $tablet) {
+    background-color: $colour-filters-desktop;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100vw;
     height: 5vh;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
   }
-  .navigation ul {
-    width: 100vh;
-    height: 90vh;
-    z-index: 2;
-    text-align: left;
-    @media (min-width: $tablet) {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 5vh;
 
-      li {
-          color: white;
-          margin: 2vh 0 2vh 25vw;
-          transition: 0.4s;
-          @media (min-width: $tablet) {
-              margin: 0;
-              cursor: pointer;
-          }
+  .navigation ul {
+    @include centeredFlexColumn;
+    display: none;
+    background-color: $colour-header;
+    width: 100vw;
+    height: 90vh;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 10vh;
+    text-align: left;
+    margin: 0;
+    overflow: hidden;
+    @media (min-width: $tablet) {
+      background-color: $colour-filters-desktop;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 70vw;
+      height: 5vh;
+    }
+
+    li {
+        @include linkStyle;
+        margin: 2vh 0;
+        @media (min-width: $tablet) {
+            margin: 0;
+            cursor: pointer;
+        }
+    }
   
-          &:hover{
-              color: $subtleWarm;
-          }
-      }
-  
-      hr {
-          margin: 5vh 0 5vh 25vw;
-          width: 40vw;
-          @media (min-width: $tablet) {
-              display: none;
-          }
+    hr {
+      margin: 5vh 0;
+      width: 60vw;
+      @media (min-width: $tablet) {
+          display: none;
       }
     }
-  }
-
-  #search {
-    background-color: white;
   }
 }
 
 main {
-  margin-top: 10vh;
+  margin-top: 15vh;
+  height: 85vh;
 }
 
 button {
-  background-color: rgb(16, 16, 71);
-  color: white;
+  background-color: $colour-button;
+  color: $colour-button-text;
   border: none;
   border-radius: 10px;
   padding: 10px;
-  .add {
-      background-color: green;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: $colour-hover;
   }
-  .remove {
-      background-color: red;
+
+  &:disabled {
+    background-color: $colour-search;
+  }
+}
+
+.filter, .nav-link {
+  @include linkStyle;
+  color: $colour-header-elements;
+  text-decoration: none;
+}
+
+.filter {
+  @media (min-width: $tablet) {
+    color: $colour-text;
+  }
+}
+
+.nav-link {
+  @media (min-width: $tablet) {
+    color: $colour-header-elements;
   }
 }

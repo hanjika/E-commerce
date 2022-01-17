@@ -1,0 +1,10 @@
+@import '../../abstracts/colours';
+
+footer {
+    background-color: $colour-header;
+    padding: 1vh;
+    // position: fixed;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+}

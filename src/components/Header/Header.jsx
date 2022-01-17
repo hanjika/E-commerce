@@ -2,15 +2,23 @@ import React from 'react';
 import './Header.scss';
 import Hamburger from './Hamburger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Header = ({ toggleHamburger }) => {
     return (
         <header className='app-header'>
             <Hamburger toggleHamburger={toggleHamburger}/>
-            <h1>SHOP</h1>
+            <Link to={'/'} className='header-link'>
+                <h1>Shopya</h1>
+            </Link>
             <div className='header-options'>
-                <FontAwesomeIcon icon={faShoppingCart} className='direct-to-cart' onClick={() => { console.log('take me to cart') }}/>
+                <Link to={'/profile'} className='nav-link'>
+                    <FontAwesomeIcon icon={faUser} className='direct-to-profile' size='2x' />
+                </Link>
+                <Link to={'/cart'} className='nav-link'>
+                    <FontAwesomeIcon icon={faShoppingCart} className='direct-to-cart' size='2x' />
+                </Link>
             </div>
         </header>
     )

@@ -1,0 +1,10 @@
+@import '../../abstracts/mixins';
+
+.profile {
+    @include centeredFlexColumn;
+    margin-top: 15%;
+
+    .capitalize {
+        text-transform: capitalize;
+    }
+}

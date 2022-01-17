@@ -1,0 +1,28 @@
+@import '../../abstracts/colours';
+@import '../../abstracts/breakpoints';
+
+.search-bar {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: 5vh;
+
+    @media (min-width: $tablet) {
+        width: 30vw;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 8px;
+        height: 5vh;
+        color: black;
+    }
+
+    input {
+        width: 100%;
+        padding: 0 23px 0 30px;
+        background-color: $colour-search;
+        border: none;
+        outline: 0;
+    }
+}

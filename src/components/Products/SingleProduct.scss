@@ -1,24 +1,45 @@
 @import '../../abstracts/mixins';
 @import '../../abstracts/breakpoints';
+@import '../../abstracts/colours';
+
+.product-link {
+    text-decoration: none;
+}
 
 .product {
-    @include centeredFlexColumn;
-    width: 80vw;
-    height: 40vh;
-    padding: 5vh;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    // @include centeredFlexColumn;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: $box-shadow-style;
+    transition: 0.4s; 
     @media (min-width: $tablet) {
-        width: 25vw;
-        height: 40vh;
-        padding: 5vh 0;
+        // width: 15vw;
+        // height: 40vh;
+        // padding: 5vh;
+    }
+
+    .product-info {
+        // width: 15vw;
+        // height: 20vh;
+        background-color: $colour-descriptions;
+        color: $colour-text;
+        border-radius: 0 0 25px 25px;
+        // padding: 5vh;
+        padding: 0 2vw;
     }
 
     img {
         max-width: 60vw;
         max-height: 20vh;
-        @media (min-width: $tablet) {
-            max-width: 20vw;
-            max-height: 20vh;
-        }    
+        margin: 2vh 0;
     }
+
+    @media (min-width: $tablet) {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }  
 }

@@ -1,13 +1,19 @@
 import React from 'react';
+import './Search.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Search = ({ products, setSearchedProducts }) => {
     return (
-        <input type='text' id='search' name='search' placeholder='Search' onChange={e => {
-            let searched = products.filter(product => product.title.toLowerCase().includes(e.target.value));
-            setSearchedProducts(searched);
-        }}>
-            
-        </input>
+        <div className='search-bar'>
+            <FontAwesomeIcon icon={faSearch} className='search-icon' />
+            <input type='text' id='search' name='search' placeholder='Search' onChange={e => {
+                let searched = products.filter(product => product.title.toLowerCase().includes(e.target.value));
+                setSearchedProducts(searched);
+            }}> 
+            </input>
+        </div>
+        
     )
 }
 

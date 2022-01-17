@@ -1,23 +1,30 @@
 import './App.scss';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header/Header';
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Nav/Navbar';
 import Search from './components/Products/Search';
 import Products from './components/Products/Products';
 import ProductDetails from './components/Products/ProductDetails';
+import AlertAddedToCart from './components/Cart/AlertAddedToCart';
 import Cart from './components/Cart/Cart';
+import CartHistory from './components/Cart/CartHistory';
+import Profile from './components/Profile/Profile';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
+  const userId = 1;
+
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [products, setProducts] = useState([]);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [category, setCategory] = useState('');
+  const [currentCart, setCurrentCart] = useState([]);
 
   const toggleHamburger = () => {
-      setHamburgerOpen(!hamburgerOpen);
+    setHamburgerOpen(!hamburgerOpen);
   }
 
   const handleCategory = (cat) => {
@@ -54,34 +61,22 @@ const App = () => {
   } else {
     return (
       <div className="App">
-        <Header toggleHamburger={toggleHamburger} />
-        <div className='filter-search'>
-          <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} />
-          <Search products={products} setSearchedProducts={setSearchedProducts} />
-        </div>
-        <main>
-          <Router>
+        <Router>
+          <Header toggleHamburger={toggleHamburger} />
+          <div className='filter-search'>
+            <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} />
+            <Search products={products} setSearchedProducts={setSearchedProducts} />
+          </div>
+          <main>
             <Routes>
-              <Route path='/' element={
-                <Products products={products} searchedProducts={searchedProducts} addToCart={(productData) => {
-                    console.log(productData);
-                  }}
-                />}
-              />
-              <Route path='/product/:id' element={<ProductDetails addToCart={(productData) => {
-                    console.log(productData);
-                  }} 
-                />} />
-              <Route path='/cart' element={< Cart />} />
-              {/* <Route path='/profile'>
-                <Profile />
-              </Route>
-              <Route path='/cart'>
-                <Cart />
-              </Route> */}
-            </Routes>
-          </Router>
-        </main>
+              <Route path='/' element={<Products searchedProducts={searchedProducts} />} />
+              <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+              <Route path='/profile' element={<Profile userId={userId} />} />
+              <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+            </Routes> 
+          </main>
+        </Router>
+        <Footer />
       </div>
     );
   }

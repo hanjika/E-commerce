@@ -1,0 +1,13 @@
+@import '../../abstracts/breakpoints';
+@import '../../abstracts/mixins';
+
+.extra-mobile-link {
+    @media (min-width: $tablet) {
+        display: none;
+    }
+}
+
+// .navigation ul {
+//     // @include centeredFlexColumn;
+//     display: none;
+// }
