@@ -2,7 +2,6 @@ import React from 'react';
 import './SingleProduct.scss';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import AddToCartButton from './AddToCartButton';
 import { Link } from 'react-router-dom';
 
 const SingleProduct = ({ product }) => {

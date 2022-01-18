@@ -14,6 +14,7 @@ const CheckoutCart = ({ userId, currentCart}) => {
     );
 
     const checkingOut = () => {
+        console.log('begin checkout');
         axios.post('https://fakestoreapi.com/carts/', input).then(
             (result) => {
                 console.log(result);

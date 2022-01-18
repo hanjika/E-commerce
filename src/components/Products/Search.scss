@@ -7,10 +7,12 @@
     width: 100vw;
     height: 5vh;
     margin: 10vh 0 0 0;
+    box-shadow: $box-shadow-style;
 
     @media (min-width: $tablet) {
         width: 30vw;
         margin: 0;
+        box-shadow: none;
     }
 
     .search-icon {

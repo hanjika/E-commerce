@@ -8,7 +8,7 @@ const AllCarts = ({ carts }) => {
             <ul>
                 {carts.map(cart => (
                     <li key={cart.id} className='single-cart'>
-                        <p>Date of purchase: {Moment(cart.date).format('DD-MM-YYYY')}</p>
+                        <p><b>Date of purchase: {Moment(cart.date).format('DD-MM-YYYY')}</b></p>
                         <ul>
                             {cart.products.map(product => (
                                 <CartProduct product={product} />                      

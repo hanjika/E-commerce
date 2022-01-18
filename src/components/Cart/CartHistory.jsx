@@ -31,14 +31,12 @@ const CartHistory = ({ userId }) => {
     } else {
         return (
             <>
-                <div className='cart'>
+                <div className='cart' id='history'>
                     {carts.length === 0 ? (
                         <p>No previous orders</p>
                         ) : (
                         <AllCarts carts={carts} />
                     )}
-                    <button>Continue Shopping</button>
-                    <button>Checkout</button>
                 </div>
                 <style jsx>{`
                 .filter-search > * {

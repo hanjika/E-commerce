@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-const Header = ({ toggleHamburger }) => {
+const Header = ({ toggleHamburger, setCategory }) => {
     return (
         <header className='app-header'>
             <Hamburger toggleHamburger={toggleHamburger}/>
             <Link to={'/'} className='header-link'>
-                <h1>Shopya</h1>
+                <h1 onClick={() => setCategory('')}>Shopya</h1>
             </Link>
             <div className='header-options'>
                 <Link to={'/profile'} className='nav-link'>

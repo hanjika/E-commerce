@@ -30,7 +30,7 @@ const CartProduct = ({ product }) => {
                 <img src={cartProduct.image} alt={cartProduct.title}></img>
                 <div className='column'>
                     <p>{cartProduct.title}</p>
-                    <p>Qty: {product.quantity}</p>
+                    <p><i>Quantity: {product.quantity}</i></p>
                 </div>
             </li> 
         )

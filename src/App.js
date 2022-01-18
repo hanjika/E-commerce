@@ -7,10 +7,10 @@ import Navbar from './components/Nav/Navbar';
 import Search from './components/Products/Search';
 import Products from './components/Products/Products';
 import ProductDetails from './components/Products/ProductDetails';
-import AlertAddedToCart from './components/Cart/AlertAddedToCart';
 import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
+import styled from 'styled-components';
 
 const App = () => {
   const userId = 1;
@@ -23,8 +23,8 @@ const App = () => {
   const [currentCart, setCurrentCart] = useState([]);
 
   const toggleHamburger = () => {
-    console.log('clicked');
     setHamburgerOpen(!hamburgerOpen);
+    console.log(hamburgerOpen);
   }
 
   const handleCategory = (cat) => {
@@ -50,6 +50,11 @@ const App = () => {
 
   const [searchedProducts, setSearchedProducts] = useState(products);
 
+  const HamStyle = styled.div`
+    .navigation ul {
+    display: ${hamburgerOpen ? 'inline' : 'none'};
+    }`;
+
   useEffect(() => {
       setSearchedProducts(products);
   }, [products]);
@@ -60,31 +65,26 @@ const App = () => {
       return <p>Loading...</p>;
   } else {
     return (
-      <>
-      <div className="App">
-        <Router>
-          <Header toggleHamburger={toggleHamburger} />
-          <div className='filter-search'>
-            <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} />
-            <Search products={products} setSearchedProducts={setSearchedProducts} />
-          </div>
-          <main>
-            <Routes>
-              <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
-              <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
-              <Route path='/profile' element={<Profile userId={userId} />} />
-              <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
-            </Routes> 
-          </main>
-        </Router>
-        <Footer />
-      </div>
-      <style jsx>{`
-      .navigation ul {
-          display: ${hamburgerOpen ? 'inline' : 'none'};
-      }
-  `}</style>
-  </>
+      <HamStyle>
+        <div className="App">
+          <Router>
+            <Header toggleHamburger={toggleHamburger} setCategory={setCategory} />
+            <div className='filter-search'>
+              <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} />
+              <Search products={products} setSearchedProducts={setSearchedProducts} />
+            </div>
+            <main>
+              <Routes>
+                <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
+                <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+                <Route path='/profile' element={<Profile userId={userId} />} />
+                <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+              </Routes> 
+            </main>
+          </Router>
+          <Footer />
+        </div>
+      </HamStyle>
     );
   }
 }
