@@ -11,5 +11,6 @@
     transition: 0.4s;
     &:hover {
         color: $colour-hover;
+        transform: scale(1.05);
     }
 }

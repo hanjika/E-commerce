@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 // import axios from 'axios';
 // import moment from 'moment';
-import { v4 as uuidv4 } from 'uuid';
 
 const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCart, alertOpen, setAlertOpen }) => {
     const object = {

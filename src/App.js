@@ -55,6 +55,9 @@ const App = () => {
   const HamStyle = styled.div`
     .navigation ul {
       display: ${hamburgerOpen ? 'inline' : 'none'};
+      @media (min-width: 800px) {
+        display: flex;
+      }
     }`;
 
   useEffect(() => {
@@ -68,7 +71,7 @@ const App = () => {
   } else {
     return (
       <HamStyle>
-        <div className="App">
+          <div className="App">
           <Router>
             <Header toggleHamburger={toggleHamburger} setCategory={setCategory} />
             <div className='filter-search'>

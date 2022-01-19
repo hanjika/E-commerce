@@ -4,7 +4,7 @@ import CurrentCartProduct from './CurrentCartProduct';
 import TotalPrice from './TotalPrice';
 
 const CurrentCart = ({ currentCart, setCurrentCart }) => {
-    // const total = currentCart.map(product => product.price).reduce((a, b) => a + b.price, 0);
+    // const total = 
     console.log(currentCart);
     const [total, setTotal] = useState(0);
 

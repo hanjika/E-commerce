@@ -28,6 +28,12 @@ const Navbar = (props) => {
                 <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
                     <Link to='/profile' className='nav-link'>My Profile</Link>
                 </li>
+                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                    <Link to='/login' className='nav-link'>Log In</Link>
+                </li>
+                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                    <Link to='/register' className='nav-link'>Register</Link>
+                </li>
                 <li className='extra-mobile-link'>Logout</li>
             </ul>
         </nav>

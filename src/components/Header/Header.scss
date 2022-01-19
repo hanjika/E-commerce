@@ -1,5 +1,6 @@
 @import '../../abstracts/breakpoints';
 @import '../../abstracts/colours';
+@import '../../abstracts/mixins';
 
 .app-header {
     display: grid;
@@ -41,6 +42,7 @@
         display: none;
         @media (min-width: $tablet) {
             display: flex;
+            align-items: center;
         }
 
         .direct-to-cart, .direct-to-profile {
@@ -49,8 +51,10 @@
         }
 
         button {
+            @include linkStyle;
             background-color: white;
             color: black;
+            margin: 1vw;
         }
     }
 }
