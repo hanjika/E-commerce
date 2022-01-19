@@ -14,7 +14,7 @@ const Header = ({ toggleHamburger, setCategory }) => {
             </Link>
             <div className='header-options'>
                 <Link to={'/login'} className='nav-link'>
-                    <button>Login</button>
+                    <button>Log in</button>
                 </Link>
                 <Link to={'/register'} className='nav-link'>
                     <button>Register</button>
