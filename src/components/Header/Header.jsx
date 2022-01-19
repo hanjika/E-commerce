@@ -13,6 +13,12 @@ const Header = ({ toggleHamburger, setCategory }) => {
                 <h1 onClick={() => setCategory('')}>Shopya</h1>
             </Link>
             <div className='header-options'>
+                <Link to={'/login'} className='nav-link'>
+                    <button>Login</button>
+                </Link>
+                <Link to={'/register'} className='nav-link'>
+                    <button>Register</button>
+                </Link>
                 <Link to={'/profile'} className='nav-link'>
                     <FontAwesomeIcon icon={faUser} className='direct-to-profile' size='2x' />
                 </Link>

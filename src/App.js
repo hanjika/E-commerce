@@ -11,9 +11,11 @@ import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
 import Footer from './components/Footer/Footer';
 import styled from 'styled-components';
+import Login from './components/Login-Register/Login';
+import Register from './components/Login-Register/Register';
 
 const App = () => {
-  const userId = 1;
+  const userId = 0;
 
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,7 +54,7 @@ const App = () => {
 
   const HamStyle = styled.div`
     .navigation ul {
-    display: ${hamburgerOpen ? 'inline' : 'none'};
+      display: ${hamburgerOpen ? 'inline' : 'none'};
     }`;
 
   useEffect(() => {
@@ -77,6 +79,8 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
                 <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+                <Route path='/login' element={<Login userId={userId} />} />
+                <Route path='/register' element={<Register userId={userId} />} />
                 <Route path='/profile' element={<Profile userId={userId} />} />
                 <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
               </Routes> 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
 
-const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCart, setAlertOpen }) => {
+const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCart, alertOpen, setAlertOpen }) => {
     const object = {
         productId: product.id,
         quantity: quantity
@@ -28,7 +28,7 @@ const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCar
     // }, []);
 
     return (
-        <button onClick={() => {
+        <button className='add-to-cart-button' onClick={() => {
             setCurrentCart(currentCart => [...currentCart, object]);
             // alert('Added to cart');
             setAlertOpen(true);

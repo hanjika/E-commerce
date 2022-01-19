@@ -19,7 +19,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 90vw;
+        width: 100vw;
         padding: 0 5vw;
     }
 
@@ -46,6 +46,11 @@
         .direct-to-cart, .direct-to-profile {
             margin: 1vw;
             cursor: pointer;
+        }
+
+        button {
+            background-color: white;
+            color: black;
         }
     }
 }

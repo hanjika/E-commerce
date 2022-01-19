@@ -24,6 +24,8 @@ const Profile = ({ userId }) => {
 
     if (error) {
         return <p>Error: {error.message}</p>;
+    } else if (userId === 0) {
+        return <p>Please Login</p>;
     } else if (!isLoaded) {
         return <p>Loading...</p>;
     } else {

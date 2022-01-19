@@ -40,6 +40,17 @@
             flex-direction: row;
             justify-content: center;
             margin-bottom: 2vh;
+
+            button {
+                border-radius: 50%;
+                width: 12vw;
+                height: 12vw;
+                @media (min-width: $tablet) {
+                    width: 5vh;
+                    height: 5vh;
+                }    
+            }
+
             .amount {
                 text-align: center;
                 margin: 0 2vw;
@@ -47,6 +58,14 @@
                     margin: 0 1vw;
                 }    
             }
+        }
+    }
+
+    /* THIS BUTTON IS NOT DETECTED */
+    .added-to-cart-button {
+        width: 30vw;
+        @media (min-width: $tablet) {
+            height: 5vh;
         }
     }
 
@@ -83,6 +102,7 @@
 
             .close-button {
                 align-self: flex-end;
+                cursor: pointer;
             }
         }
     }

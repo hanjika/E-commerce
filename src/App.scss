@@ -2,9 +2,18 @@
 @import './abstracts/breakpoints';
 @import './abstracts/colours';
 
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
 }
@@ -110,5 +119,21 @@ button {
 .nav-link {
   @media (min-width: $tablet) {
     color: $colour-header-elements;
+  }
+}
+
+.form-login,
+.form-register {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  @media (min-width: $tablet) {
+    width: 70vw;
+    margin: auto;
+    align-items: center;
+  }
+
+  button {
+    margin: 2vh 0;
   }
 }
