@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Moment from 'moment';
 
-const CheckoutCart = ({ userId, currentCart}) => {
+const CheckoutCart = ({ userId, currentCart }) => {
     const [error, setError] = useState(null);
 
     const input = JSON.stringify(
@@ -15,7 +15,7 @@ const CheckoutCart = ({ userId, currentCart}) => {
 
     const checkingOut = () => {
         console.log('begin checkout');
-        axios.post('https://fakestoreapi.com/carts/', input).then(
+        axios.post('https://fakestoreapi.com/carts', input).then(
             (result) => {
                 console.log(result);
             },

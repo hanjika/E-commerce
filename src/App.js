@@ -13,10 +13,11 @@ import Footer from './components/Footer/Footer';
 import styled from 'styled-components';
 import Login from './components/Login-Register/Login';
 import Register from './components/Login-Register/Register';
+import Error from './components/Error/Error';
+import LoginSuccess from './components/Login-Register/LoginSuccess';
 
 const App = () => {
-  const userId = 0;
-
+  const [userId, setUserId] = useState(0);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [products, setProducts] = useState([]);
@@ -26,7 +27,6 @@ const App = () => {
 
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
-    console.log(hamburgerOpen);
   }
 
   const handleCategory = (cat) => {
@@ -65,7 +65,14 @@ const App = () => {
   }, [products]);
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return (
+      <Router>
+        <Error message={error.message} setCategory={setCategory} />;
+        <Routes>
+          <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
+        </Routes>
+      </Router>
+    )
   } else if (!isLoaded) {
       return <p>Loading...</p>;
   } else {
@@ -73,16 +80,17 @@ const App = () => {
       <HamStyle>
           <div className="App">
           <Router>
-            <Header toggleHamburger={toggleHamburger} setCategory={setCategory} />
+            <Header userId={userId} setUserId={setUserId} toggleHamburger={toggleHamburger} setCategory={setCategory} />
             <div className='filter-search'>
-              <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} />
+              <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} userId={userId} setUserId={setUserId} />
               <Search products={products} setSearchedProducts={setSearchedProducts} />
             </div>
             <main>
               <Routes>
-                <Route path='/' element={<Products category={category} searchedProducts={searchedProducts} />} />
+                <Route path='/' element={<Products error={error} category={category} searchedProducts={searchedProducts} />} />
                 <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
-                <Route path='/login' element={<Login userId={userId} />} />
+                <Route path='/login' element={<Login setUserId={setUserId} />} />
+                <Route path='/loginsuccess' element={<LoginSuccess />} />
                 <Route path='/register' element={<Register userId={userId} />} />
                 <Route path='/profile' element={<Profile userId={userId} />} />
                 <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
@@ -92,7 +100,7 @@ const App = () => {
           <Footer />
         </div>
       </HamStyle>
-    );
+    )
   }
 }
 

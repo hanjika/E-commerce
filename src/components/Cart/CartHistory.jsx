@@ -9,9 +9,8 @@ const CartHistory = ({ userId }) => {
     const [carts, setCarts] = useState([]);
 
     useEffect(() => {
-        axios.get('https://fakestoreapi.com/carts/user/' + userId).then(
+        axios.get('https://fakestoreapi.com/carts/' + userId).then(
             (result) => {
-                console.log(result.data);
                 setIsLoaded(true);
                 setCarts(result.data);
             },
@@ -32,7 +31,7 @@ const CartHistory = ({ userId }) => {
                 <div className='cart' id='history'>
                     {carts.length === 0 ? (
                         <p>No previous orders</p>
-                        ) : (
+                    ) : (
                         <AllCarts carts={carts} />
                     )}
                 </div>

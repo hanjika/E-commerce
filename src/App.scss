@@ -16,6 +16,10 @@ html, body {
 body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
+  
+  .error {
+    @include centeredFlexColumn;
+  }
 }
 
 .filter-search {
@@ -168,6 +172,7 @@ button {
   }
 }
 
+.login-success,
 .to-login-register {
   width: 100vw;
   display: flex;
@@ -188,3 +193,11 @@ button {
     }
   }
 }
+
+// footer {
+//   background-color: $colour-header;
+//   color: $colour-header-elements;
+//   position: relative;
+//   bottom: 0;
+//   width: 100%;
+// }

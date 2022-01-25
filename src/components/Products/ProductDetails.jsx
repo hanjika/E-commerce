@@ -42,16 +42,16 @@ const ProductDetails = ({ userId, currentCart, setCurrentCart }) => {
     } else {
         return (
             // <CartModalStyle>
-                <div className='product-selected'>
-                    <img src={product.image} alt={product.title}></img>
-                    <div>
-                        <p>{product.title}</p>
-                        <p>€{product.price?.toFixed(2)}</p>
-                        {/* <p>€{product.price.toFixed(2)}</p> */}
-                        <AddToCartContainer userId={userId} product={product} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
-                    </div> 
-                    <AlertAddedToCart product={product} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
+            <div className='product-selected'>
+                <img src={product.image} alt={product.title}></img>
+                <div>
+                    <p>{product.title}</p>
+                    <p>€{product.price?.toFixed(2)}</p>
+                    {/* <p>€{product.price.toFixed(2)}</p> */}
+                    <AddToCartContainer userId={userId} product={product} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
                 </div>
+                <AlertAddedToCart product={product} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
+            </div>
             // {/* </CartModalStyle> */}
         )
     }

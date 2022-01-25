@@ -62,7 +62,7 @@ const Profile = ({ userId }) => {
                         <details>
                             <summary>Previous Orders</summary>
                             <CartHistory userId={userId} />
-                        </details> 
+                        </details>
                     </div>
                 </div>
                 {/* <style jsx>{`

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const AlertAddedToCart = ({ product, alertOpen, setAlertOpen }) => {
-    console.log(alertOpen);
     if (alertOpen) {
        return (
             <div className='added-to-cart-modal'>

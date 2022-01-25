@@ -22,19 +22,34 @@ const Navbar = (props) => {
                     <li className='filter' onClick={() => { props.handleCategory('electronics'); props.toggleHamburger() }}>Electronics</li>
                 </Link>
                 <hr></hr>
-                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
-                    <Link to='/cart' className='nav-link'>My Cart</Link>
-                </li>
-                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
-                    <Link to='/profile' className='nav-link'>My Profile</Link>
-                </li>
-                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
-                    <Link to='/login' className='nav-link'>Log In</Link>
-                </li>
-                <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
-                    <Link to='/register' className='nav-link'>Register</Link>
-                </li>
-                <li className='extra-mobile-link'>Logout</li>
+                {props.userId === 0 ? 
+                    (
+                        <>
+                            <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                                <Link to='/login' className='nav-link'>Log In</Link>
+                            </li>
+                            <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                                <Link to='/register' className='nav-link'>Register</Link>
+                            </li>
+                        </>
+                    ) : 
+                    (
+                        <>
+                            <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                                <Link to='/cart' className='nav-link'>My Cart</Link>
+                            </li>
+                            <li className='extra-mobile-link' onClick={() => props.toggleHamburger()}>
+                                <Link to='/profile' className='nav-link'>My Profile</Link>
+                            </li>
+                            <li className='extra-mobile-link' onClick={() => {
+                                    props.toggleHamburger();
+                                    props.setUserId(0);
+                                }}>
+                                <Link to='/' className='nav-link'>Logout</Link>
+                            </li>
+                        </>
+                    )
+                }
             </ul>
         </nav>
     )

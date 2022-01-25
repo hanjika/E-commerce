@@ -9,7 +9,6 @@ const CartProduct = ({ product }) => {
     useEffect(() => {
         axios.get('https://fakestoreapi.com/products/' + product.productId).then(
             (result) => {
-                console.log(result.data);
                 setIsLoaded(true);
                 setCartProduct(result.data);
             },
@@ -32,7 +31,7 @@ const CartProduct = ({ product }) => {
                     <p>{cartProduct.title}</p>
                     <p><i>Quantity: {product.quantity}</i></p>
                 </div>
-            </li> 
+            </li>
         )
     }
 }

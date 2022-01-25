@@ -2,7 +2,8 @@
 @import '../../abstracts/colours';
 @import '../../abstracts/mixins';
 
-.app-header {
+.app-header,
+.app-header-error {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     align-content: center;
@@ -15,6 +16,12 @@
     width: 100vw;
     height: 10vh;
     z-index: 1;
+
+    .error-mobile-only {
+        @media (min-width: $tablet) {
+            display: none;
+        }
+    }
 
     @media (min-width: $tablet) {
         display: flex;
