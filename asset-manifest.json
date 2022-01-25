@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/shopya/static/css/main.bc98ed05.css",
+    "main.js": "/shopya/static/js/main.8a3a36d9.js",
+    "index.html": "/shopya/index.html",
+    "main.bc98ed05.css.map": "/shopya/static/css/main.bc98ed05.css.map",
+    "main.8a3a36d9.js.map": "/shopya/static/js/main.8a3a36d9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc98ed05.css",
+    "static/js/main.8a3a36d9.js"
+  ]
+}
