@@ -28,9 +28,11 @@ Existing login details for testing:
 
 ### Mobile
 
-![Mobile filtered page](images/mobile_filter.png)
-![Mobile nav](images/mobile_nav.png)
-![Mobile product page](images/mobile_product.png)
+<img src="images/mobile_filter.png" alt="Mobile filtered page" width="390"/>
+&nbsp;
+<img src="images/mobile_nav.png" alt="Mobile nav" width="390"/>
+&nbsp; 
+<img src="images/mobile_product.png" alt="Mobile product page" width="390"/> 
 
 ### Desktop
 
