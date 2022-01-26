@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import axios from 'axios';
 // import moment from 'moment';
 
-const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCart, alertOpen, setAlertOpen }) => {
+const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCart, alertOpen, setAlertOpen, setAddOrRemove }) => {
     const object = {
         productId: product.id,
+        price: product.price,
         quantity: quantity
     };
+
+    const addProductToCart = () => {
+        setAddOrRemove('add');
+        setCurrentCart(currentCart => [...currentCart, object]);
+        setAlertOpen(true);
+    }
     // const input = JSON.stringify(
     //     {
     //         userId: 1,
@@ -26,15 +33,7 @@ const AddToCartButton = ({ userId, product, quantity, currentCart, setCurrentCar
     //     )
     // }, []);
 
-    return (
-        <button className='add-to-cart-button' onClick={() => {
-            setCurrentCart(currentCart => [...currentCart, object]);
-            // alert('Added to cart');
-            setAlertOpen(true);
-        }}>
-            Add To Cart
-        </button>
-    )
+    return <button className='add-to-cart-button' onClick={addProductToCart}>Add To Cart</button>;
 }
 
 export default AddToCartButton;

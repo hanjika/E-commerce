@@ -6,10 +6,10 @@ import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import LogoutButton from '../Login-Register/LogoutButton';
 
-const Header = ({ userId, setUserId, toggleHamburger, setCategory }) => {
+const Header = ({ userId, setUserId, hamburgerOpen, toggleHamburger, setCategory }) => {
     return (
         <header className='app-header'>
-            <Hamburger toggleHamburger={toggleHamburger}/>
+            <Hamburger hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger}/>
             <Link to={'/'} className='header-link'>
                 <h1 onClick={() => setCategory('')}>Shopya</h1>
             </Link>

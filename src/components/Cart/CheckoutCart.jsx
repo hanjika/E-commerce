@@ -14,6 +14,7 @@ const CheckoutCart = ({ userId, currentCart }) => {
     );
 
     const checkingOut = () => {
+        alert('Checkout in progress');
         console.log('begin checkout');
         axios.post('https://fakestoreapi.com/carts', input).then(
             (result) => {

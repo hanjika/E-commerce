@@ -10,6 +10,7 @@
         margin: 0;
     }
 
+    .current-cart,
     .current-cart ul {
         @include centeredFlexColumn;
     }
@@ -37,6 +38,7 @@
             @media (min-width: $tablet) {
                 position: absolute;
                 max-width: 10vw;
+                max-height: 28vh;
                 margin: 0 10vw;
             }        
         }
@@ -53,6 +55,13 @@
                 margin-right: 5vw;
                 right: 5vw;
             } 
+
+            .remove-cart-product {
+                transition: 0.4s;
+                &:hover {
+                    color: $colour-hover;
+                }
+            }
         }
 
         .column-desktop {

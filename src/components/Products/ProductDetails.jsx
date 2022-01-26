@@ -6,7 +6,7 @@ import AddToCartContainer from './AddToCartContainer';
 import AlertAddedToCart from './AlertAddedToCart';
 import styled from 'styled-components';
 
-const ProductDetails = ({ userId, currentCart, setCurrentCart }) => {
+const ProductDetails = ({ userId, currentCart, setCurrentCart, setAddOrRemove }) => {
     const location = useLocation();
     const id = location.pathname.split('/')[2];
 
@@ -48,7 +48,7 @@ const ProductDetails = ({ userId, currentCart, setCurrentCart }) => {
                     <p>{product.title}</p>
                     <p>€{product.price?.toFixed(2)}</p>
                     {/* <p>€{product.price.toFixed(2)}</p> */}
-                    <AddToCartContainer userId={userId} product={product} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
+                    <AddToCartContainer userId={userId} product={product} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} setAddOrRemove={setAddOrRemove} />
                 </div>
                 <AlertAddedToCart product={product} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
             </div>

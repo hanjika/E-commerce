@@ -6,7 +6,7 @@ import CurrentCart from './CurrentCart';
 import CheckoutCart from './CheckoutCart';
 import { Link } from 'react-router-dom';
 
-const Cart = ({ userId, currentCart, setCurrentCart }) => {
+const Cart = ({ total, setTotal, setAddOrRemove, userId, currentCart, setCurrentCart }) => {
     if (userId === 0) {
         return (
             <div className='to-login-register'>
@@ -30,7 +30,7 @@ const Cart = ({ userId, currentCart, setCurrentCart }) => {
                             <p>Cart is empty</p>
                         </> 
                         ) : (
-                        <CurrentCart currentCart={currentCart} setCurrentCart={setCurrentCart} />
+                        <CurrentCart total={total} setTotal={setTotal} setAddOrRemove={setAddOrRemove} currentCart={currentCart} setCurrentCart={setCurrentCart} />
                     )}
                     <div className='final-option-buttons'>
                         <Link to='/'>

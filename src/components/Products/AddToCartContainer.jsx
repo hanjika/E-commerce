@@ -3,7 +3,7 @@ import AddToCartButton from './AddToCartButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 
-const AddToCartContainer = ({ userId, product, currentCart, setCurrentCart, alertOpen, setAlertOpen }) => {
+const AddToCartContainer = ({ userId, product, currentCart, setCurrentCart, alertOpen, setAlertOpen, setAddOrRemove }) => {
     const [quantity, setQuantity] = useState(1);
 
     const updateQuantity = (change) => {
@@ -17,7 +17,7 @@ const AddToCartContainer = ({ userId, product, currentCart, setCurrentCart, aler
                 <p className='amount'>{quantity}</p>
                 <button onClick={() => updateQuantity(1)}><FontAwesomeIcon icon={faPlus} /></button>
             </div>
-            <AddToCartButton userId={userId} product={product} quantity={quantity} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} />
+            <AddToCartButton userId={userId} product={product} quantity={quantity} currentCart={currentCart} setCurrentCart={setCurrentCart} alertOpen={alertOpen} setAlertOpen={setAlertOpen} setAddOrRemove={setAddOrRemove} />
         </div>
     )
 }

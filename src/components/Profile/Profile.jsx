@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.scss';
-import { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -12,18 +11,33 @@ const Profile = ({ userId }) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
-    if (userId !== 0) {
-        axios.get('https://fakestoreapi.com/users/' + userId).then(
-            (result) => {
-                setIsLoaded(true);
-                setUser(result.data);
-            },
-            (error) => {
-                setIsLoaded(true);
-                setError(error);
-            }
-        );
-    }
+    useEffect(() => {
+        if (userId !== 0) {
+            axios.get('https://fakestoreapi.com/users/' + userId).then(
+                (result) => {
+                    setIsLoaded(true);
+                    setUser(result.data);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            );
+        }
+      }, []);
+
+    // if (userId !== 0) {
+    //     axios.get('https://fakestoreapi.com/users/' + userId).then(
+    //         (result) => {
+    //             setIsLoaded(true);
+    //             setUser(result.data);
+    //         },
+    //         (error) => {
+    //             setIsLoaded(true);
+    //             setError(error);
+    //         }
+    //     );
+    // }
 
     if (error) {
         return <p>Error: {error.message}</p>;

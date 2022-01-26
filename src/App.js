@@ -24,6 +24,16 @@ const App = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [category, setCategory] = useState('');
   const [currentCart, setCurrentCart] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [addOrRemove, setAddOrRemove] = useState('add');
+
+  useEffect(() => {
+    if (addOrRemove === 'add') {
+      currentCart.map(product => (
+        setTotal(total + (product.price*product.quantity))
+      ))
+    }
+  }, [currentCart]);
 
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
@@ -80,7 +90,7 @@ const App = () => {
       <HamStyle>
           <div className="App">
           <Router>
-            <Header userId={userId} setUserId={setUserId} toggleHamburger={toggleHamburger} setCategory={setCategory} />
+            <Header userId={userId} setUserId={setUserId} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} setCategory={setCategory} />
             <div className='filter-search'>
               <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} userId={userId} setUserId={setUserId} />
               <Search products={products} setSearchedProducts={setSearchedProducts} />
@@ -88,12 +98,12 @@ const App = () => {
             <main>
               <Routes>
                 <Route path='/' element={<Products error={error} category={category} searchedProducts={searchedProducts} />} />
-                <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
-                <Route path='/login' element={<Login setUserId={setUserId} />} />
+                <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} setAddOrRemove={setAddOrRemove} />} />
+                <Route path='/login' element={<Login userId={userId} setUserId={setUserId} />} />
                 <Route path='/loginsuccess' element={<LoginSuccess />} />
                 <Route path='/register' element={<Register userId={userId} />} />
                 <Route path='/profile' element={<Profile userId={userId} />} />
-                <Route path='/cart' element={<Cart userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
+                <Route path='/cart' element={<Cart total={total} setTotal={setTotal} setAddOrRemove={setAddOrRemove} userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
               </Routes> 
             </main>
           </Router>

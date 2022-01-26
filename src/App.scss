@@ -172,6 +172,13 @@ button {
   }
 }
 
+.form-register {
+  .required:after {
+    content:' *';
+    color: $colour-hover;
+  }
+}
+
 .login-success,
 .to-login-register {
   width: 100vw;
