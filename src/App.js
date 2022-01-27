@@ -89,7 +89,7 @@ const App = () => {
     return (
       <HamStyle>
           <div className="App">
-          <Router>
+          <Router basename='/E-commerce'>
             <Header userId={userId} setUserId={setUserId} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} setCategory={setCategory} />
             <div className='filter-search'>
               <Navbar handleCategory={handleCategory} category={category} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} userId={userId} setUserId={setUserId} />

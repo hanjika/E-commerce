@@ -1,4 +1,4 @@
-# E-commerce Front End
+# E-commerce Front End [*Work in progress*]
 
 The front end of an e-commerce website developed using:
 
