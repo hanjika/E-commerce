@@ -4,8 +4,11 @@ The front end of an e-commerce website developed using:
 
 - React
 - SCSS
+- API: [FakeStoreApi](https://fakestoreapi.com/)
 
 https://hanjika.github.io/E-commerce/
+
+*Note: Registration is not possible with the API*
 
 ## Objectives
 

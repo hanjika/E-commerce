@@ -16,6 +16,14 @@ import Register from './components/Login-Register/Register';
 import Error from './components/Error/Error';
 import LoginSuccess from './components/Login-Register/LoginSuccess';
 
+const HamStyle = styled.div`
+  .navigation ul {
+    display: ${props => props.ham};
+    @media (min-width: 800px) {
+      display: flex;
+    }
+  }`;
+
 const App = () => {
   const [userId, setUserId] = useState(0);
   const [error, setError] = useState(null);
@@ -62,14 +70,6 @@ const App = () => {
 
   const [searchedProducts, setSearchedProducts] = useState(products);
 
-  const HamStyle = styled.div`
-    .navigation ul {
-      display: ${hamburgerOpen ? 'inline' : 'none'};
-      @media (min-width: 800px) {
-        display: flex;
-      }
-    }`;
-
   useEffect(() => {
       setSearchedProducts(products);
   }, [products]);
@@ -87,7 +87,7 @@ const App = () => {
       return <p>Loading...</p>;
   } else {
     return (
-      <HamStyle>
+      <HamStyle ham={hamburgerOpen ? 'inline' : 'none'}>
           <div className="App">
           <Router basename='/E-commerce'>
             <Header userId={userId} setUserId={setUserId} hamburgerOpen={hamburgerOpen} toggleHamburger={toggleHamburger} setCategory={setCategory} />
@@ -99,10 +99,10 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Products error={error} category={category} searchedProducts={searchedProducts} />} />
                 <Route path='/product/:id' element={<ProductDetails userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} setAddOrRemove={setAddOrRemove} />} />
-                <Route path='/login' element={<Login userId={userId} setUserId={setUserId} />} />
+                <Route path='/login' element={<Login userId={userId} setUserId={setUserId} setCategory={setCategory} />} />
                 <Route path='/loginsuccess' element={<LoginSuccess />} />
                 <Route path='/register' element={<Register userId={userId} />} />
-                <Route path='/profile' element={<Profile userId={userId} />} />
+                <Route path='/profile' element={<Profile userId={userId} setCategory={setCategory} />} />
                 <Route path='/cart' element={<Cart total={total} setTotal={setTotal} setAddOrRemove={setAddOrRemove} userId={userId} currentCart={currentCart} setCurrentCart={setCurrentCart} />} />
               </Routes> 
             </main>

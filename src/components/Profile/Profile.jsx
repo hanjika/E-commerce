@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import CartHistory from '../Cart/CartHistory';
 import { Link } from 'react-router-dom';
+import Error from '../Error/Error';
 
-const Profile = ({ userId }) => {
+const Profile = ({ userId, setCategory }) => {
     const [user, setUser] = useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -40,7 +41,7 @@ const Profile = ({ userId }) => {
     // }
 
     if (error) {
-        return <p>Error: {error.message}</p>;
+        return <Error message={error.message} setCategory={setCategory} />;
     } else if (userId === 0) {
         return (
             <div className='to-login-register'>
@@ -79,11 +80,9 @@ const Profile = ({ userId }) => {
                         </details>
                     </div>
                 </div>
-                {/* <style jsx>{`
-                @import '../../abstracts/breakpoints';
-
+                <style jsx='true'>{`
                 .filter-search > * {
-                    @media (min-width: $tablet) {
+                    @media (min-width: 800px) {
                         display: none;
                     }
                 }
@@ -91,7 +90,7 @@ const Profile = ({ userId }) => {
                 .search-bar {
                     display: none;
                 }
-                `}</style> */}
+                `}</style>
             </>
         )
     }

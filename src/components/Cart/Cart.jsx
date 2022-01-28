@@ -41,7 +41,7 @@ const Cart = ({ total, setTotal, setAddOrRemove, userId, currentCart, setCurrent
                         )}
                     </div>
                 </div>
-                <style jsx>{`
+                <style jsx='true'>{`
                 .filter-search > * {
                     @media (min-width: 800px) {
                         display: none;

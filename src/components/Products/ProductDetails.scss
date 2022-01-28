@@ -92,11 +92,12 @@
 
             @media (min-width: $tablet) {
                 margin: 5vh auto;
-                padding: 1vw;
+                padding: 2vw;
                 width: 40vw;
 
                 img {
                     box-shadow: none;
+                    margin: 0;
                 }
             }    
 

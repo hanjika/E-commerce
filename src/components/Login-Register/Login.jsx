@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import LoginSuccess from './LoginSuccess';
+import Error from '../Error/Error';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ userId, setUserId }) => {
+const Login = ({ setUserId, setCategory }) => {
     let navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,19 +11,26 @@ const Login = ({ userId, setUserId }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [error, setError] = useState(null);
 
-    const handleLoginSubmit = async (e) => {
+    const handleLoginSubmit = (e) => {
         e.preventDefault();
         const userLogin = {
             username: username,
             password: password
         };
-        await setData(userLogin);
-        await navigate('/loginsuccess');
+        setData(userLogin);
     }
 
     useEffect(() => {
+        if (isLoggedIn) {
+            navigate('/loginsuccess');
+        }
+    }, [isLoggedIn]);
+
+    useEffect(() => {
+        const controller = new AbortController();
+
         if (data) {
-            axios.post('https://fakestoreapi.com/auth/login/', data).then(
+            axios.post('https://fakestoreapi.com/auth/login/', data, { signal: controller.signal }).then(
                 (result) => {
                     setUserId(result.data.id);
                     setIsLoggedIn(true);
@@ -33,12 +40,12 @@ const Login = ({ userId, setUserId }) => {
                 }
             );
         }
+
+        return () => controller.abort();
     }, [data]);
 
     if (error) {
-        return <p>Error: {error.message}</p>;
-    } else if (isLoggedIn) {
-        return <LoginSuccess />;
+        return <Error message={error.message} setCategory={setCategory} />;
     }
 
     return (

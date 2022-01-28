@@ -9,24 +9,9 @@ const Register = () => {
     const [passwordRepeat, setPasswordRepeat] = useState('');
     // const [data, setData] = useState(null);
 
-    // if (typeof input['password'] !== 'undefined' && typeof input['passwordRepeat'] !== 'undefined') {
-    //     if (input['password'] != input['passwordRepeat']) {
-    //       isValid = false;
-    //       errors['password'] = 'Passwords do not match.';
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     if (typeof input['password'] !== 'undefined' && typeof input['passwordRepeat'] !== 'undefined') {
-    //         if (input['password'] != input['passwordRepeat']) {
-    //           errors['password'] = 'Passwords do not match.';
-    //         }
-    //     }
-    // }, [password, passwordRepeat]);
-
     const handleRegisterSubmit = (e) => {
         e.preventDefault();
-        alert('Registration in progress');
+        alert('Registration not possible with chosen API');
         console.log('Submit registration form')
         // const newUser = {
         //     userId: uuid(),
