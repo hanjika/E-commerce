@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Cart.scss';
 import AllCarts from './AllCarts';
+import Loader from '../Loader';
 
 const CartHistory = ({ userId }) => {
     const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ const CartHistory = ({ userId }) => {
     if (error) {
         return <p>Error: {error.message}</p>;
     } else if (!isLoaded) {
-        return <p>Loading...</p>;
+        return <Loader type={'none'} />;
     } else {
         return (
             <>
@@ -35,7 +36,7 @@ const CartHistory = ({ userId }) => {
                         <AllCarts carts={carts} />
                     )}
                 </div>
-                <style jsx>{`
+                <style jsx='true'>{`
                 .filter-search > * {
                     display: none;
                 }

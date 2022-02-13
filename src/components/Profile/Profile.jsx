@@ -6,6 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import CartHistory from '../Cart/CartHistory';
 import { Link } from 'react-router-dom';
 import Error from '../Error/Error';
+import Loader from '../Loader';
 
 const Profile = ({ userId, setCategory }) => {
     const [user, setUser] = useState([]);
@@ -25,7 +26,7 @@ const Profile = ({ userId, setCategory }) => {
                 }
             );
         }
-      }, []);
+    }, []);
 
     // if (userId !== 0) {
     //     axios.get('https://fakestoreapi.com/users/' + userId).then(
@@ -45,7 +46,7 @@ const Profile = ({ userId, setCategory }) => {
     } else if (userId === 0) {
         return (
             <div className='to-login-register'>
-                <p><b>You must log in to view your profile</b></p>
+                <p><b>You must log in to view your progifile</b></p>
                 <Link to={'/login'} className='nav-link'>
                     <button>Log in</button>
                 </Link>
@@ -55,7 +56,7 @@ const Profile = ({ userId, setCategory }) => {
             </div>
         )
     } else if (!isLoaded) {
-        return <p>Loading...</p>;
+        return <Loader type={'none'} />;
     } else {
         return (
             <>

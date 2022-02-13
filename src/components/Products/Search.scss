@@ -34,7 +34,7 @@
         background-color: $colour-search;
         color: black;
         border: none;
-        // outline: 0;
+        outline: none;
         font-family: 'Poppins', sans-serif;
         font-size: inherit;
         @media (min-width: $tablet) {

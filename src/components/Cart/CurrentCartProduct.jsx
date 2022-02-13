@@ -3,6 +3,7 @@ import axios from 'axios';
 import RemoveCartProduct from './RemoveCartProduct';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import Loader from '../Loader';
 
 const CurrentCartProduct = ({ product, currentCart, setCurrentCart, total, setTotal, setAddOrRemove }) => {
     const [error, setError] = useState(null);
@@ -68,7 +69,7 @@ const CurrentCartProduct = ({ product, currentCart, setCurrentCart, total, setTo
     if (error) {
         return <p>Error: {error.message}</p>;
     } else if (!isLoaded) {
-        return <p>Loading...</p>;
+        return <Loader type={'none'} />;
     } else {
         return (
             <li className='single-cart-product'>

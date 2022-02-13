@@ -15,6 +15,7 @@ import Login from './components/Login-Register/Login';
 import Register from './components/Login-Register/Register';
 import Error from './components/Error/Error';
 import LoginSuccess from './components/Login-Register/LoginSuccess';
+import Loader from './components/Loader';
 
 const HamStyle = styled.div`
   .navigation ul {
@@ -84,7 +85,7 @@ const App = () => {
       </Router>
     )
   } else if (!isLoaded) {
-      return <p>Loading...</p>;
+      return <Loader type={'opening-loader'} />;
   } else {
     return (
       <HamStyle ham={hamburgerOpen ? 'inline' : 'none'}>

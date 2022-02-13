@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loader from '../Loader';
 
 const CartProduct = ({ product }) => {
     const [error, setError] = useState(null);
@@ -22,7 +23,7 @@ const CartProduct = ({ product }) => {
     if (error) {
         return <p>Error: {error.message}</p>;
     } else if (!isLoaded) {
-        return <p>Loading...</p>;
+        return <Loader type={'none'} />;
     } else {
         return (
             <li key={product.productId} className='row'>

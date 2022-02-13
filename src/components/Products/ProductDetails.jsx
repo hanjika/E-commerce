@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import AddToCartContainer from './AddToCartContainer';
 import AlertAddedToCart from './AlertAddedToCart';
+import Loader from '../Loader';
 
 const ProductDetails = ({ userId, currentCart, setCurrentCart, setAddOrRemove }) => {
     const location = useLocation();
@@ -30,7 +31,7 @@ const ProductDetails = ({ userId, currentCart, setCurrentCart, setAddOrRemove })
     if (error) {
         return <p>Error: {error.message}</p>;
     } else if (!isLoaded) {
-        return <p>Loading...</p>;
+        return <Loader type={'none'} />;
     } else {
         return (
             <div className='product-selected'>
